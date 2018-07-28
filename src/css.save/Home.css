@@ -1,0 +1,31 @@
+.about-container {
+	width: 80%;
+	margin: auto;
+	/* border: 1px solid black; */
+	padding: 1em;
+}
+.sub-heading {
+	text-align: center;
+	margin: .5em 0;
+	font-size: 2.2em;
+}
+.img-placeholder {
+	/* float: left; */
+	width: 225px;
+	height: 225px;
+	margin: 3em auto;
+	background: lightslategrey;
+	text-align: center;
+	line-height: 225px;
+	/* margin-bottom: .5em; */
+	/* margin-right: 1em; */
+	/* display: block; */
+}
+article p:first-of-type {
+	width: 80%;
+	margin: 1.5em auto;
+	line-height: 1.5em;
+	/* margin-top: 1em; */
+	text-align: center;
+	font-size: 1.22em;
+}

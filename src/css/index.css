@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+* {
+	font-family: 'Roboto';
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	/* letter-spacing: 0.04em; */
+
+}
+body {
+	/* min-height: 100vh; */
+}
+
+
+.clearfix::after {
+	content: '';
+	display: table;
+	clear: both;
+}
