@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import { AppBar, Toolbar, Button, Typography, IconButton } from '@material-ui/core'
-import MenuIcon from '@material-ui/icons/Menu'
-import {withStyles} from '@material-ui/core/styles'
+import { AppBar, Toolbar, Button, Typography, IconButton } from '@material-ui/corimport {withStyles} from '@material-ui/core/styles'
 
 const styles = {
 	root: {
@@ -27,7 +25,7 @@ class Header extends Component {
 							{this.props.siteName}
 						</Typography>
 						<Button color='inherit' href='/'>About</Button>
-						<Button color='inherit' href='/resume'>Resume</Button>
+						<Button color='inherit' href='/'>Resume</Button>
 						<Button color='inherit' href='/projects'>Projects</Button>
 						<Button color='inherit' href='/contact'>Contact</Button>
 					</Toolbar>
