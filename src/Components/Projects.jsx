@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import ProjectItem from './ProjectItem'
 import {Paper} from '@material-ui/core'
-// import proj from '../projectList'
 
 const styles = {
 	root: {
@@ -63,8 +62,8 @@ class Projects extends Component {
 				img: './assets/img/proj-6.jpeg'
 			},
 			{
-				link: '#', 
-				title: 'Coming Soon!', 
+				link: 'http://defiledspec.github.io/bamazon-cli', 
+				title: 'Bamazon', 
 				img: './assets/img/proj-2.jpeg'},
 			{
 				link: '#', 
@@ -83,9 +82,7 @@ class Projects extends Component {
 		const {classes} = this.props
 		return (
 			<Paper className={classes.root}>
-				
-					<ProjectItem projectList={this.state.projects}/>
-				
+				<ProjectItem projectList={this.state.projects} />
 			</Paper>
 		)
 	}

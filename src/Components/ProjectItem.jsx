@@ -18,37 +18,39 @@ const styles = {
 		maxWidth: 1000,
 		// maxWidth: 'max-content',
 		margin: '5em auto',
+	},
+	tile: {
+		height: 'auto', 
+		width: 250
 	}
   }
   class ProjectItem extends Component {
-	
 	render() {
 		const {classes} = this.props
 		return (
 			<GridList className={classes.gridList}>
-			{this.props.projectList.map(function(project, i) {
-				let { title, img, link } = project
-				return (
-				<GridListTile key={i} style={{height: 'auto', width: 250}}>
-					<Card className={classes.card}>
-						<CardMedia className={classes.media} image={img} title={title} />
-						<CardContent>
-							<Typography gutterBottom variant='headline' component='h2'>
-								{title}
-							</Typography>
-							<Typography component='p'>
-								Short item description.
-							</Typography>
-						</CardContent>
-						<CardActions>
-							<Button href={link} size='small' color='primary'>Project</Button>
-							<Button size='small' color='primary'>GitHub</Button>
-						</CardActions>
-					</Card>
-				</GridListTile>
-				)
-			})}	
-			{/* <div className="clearfix"></div> */}
+				{this.props.projectList.map(function(project, i) {
+					let { title, img, link } = project
+					return (
+					<GridListTile key={i} style={classes.tile}>
+						<Card className={classes.card}>
+							<CardMedia className={classes.media} image={img} title={title} />
+							<CardContent>
+								<Typography gutterBottom variant='headline' component='h2'>
+									{title}
+								</Typography>
+								<Typography component='p'>
+									Short item description.
+								</Typography>
+							</CardContent>
+							<CardActions>
+								<Button href={link} size='small' color='primary'>Project</Button>
+								<Button size='small' color='primary'>GitHub</Button>
+							</CardActions>
+						</Card>
+					</GridListTile>
+					)
+				})}	
 			</GridList>
 		)
 	}
