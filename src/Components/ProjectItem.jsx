@@ -40,7 +40,7 @@ const styles = {
 						<Card className={classes.card}>
 							<CardMedia className={classes.media} image={img} title={title} />
 							<CardContent>
-								<Typography gutterBottom variant='headline' component='h2'>
+								<Typography gutterBottom variant='headline' component='h3'>
 									{title}
 								</Typography>
 								<Typography component='p'>
