@@ -1,7 +1,7 @@
 
 
 
-class Contact {
+class ContactMsg {
 	constructor() {
 
 	}
