@@ -9,6 +9,7 @@ const styles = {
 		flexWrap: 'wrap',
 		justifyContent: 'space-around',
 		overflow: 'hidden',
+		maxWidth: '100vw',
 		width: 'max-content',
 		margin: '3em auto',
 		padding: '1em 1.5em',
