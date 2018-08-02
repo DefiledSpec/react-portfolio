@@ -4,12 +4,15 @@ import { Card, CardActions, CardContent, CardMedia, Button, Typography, GridList
 
 const styles = {
 	card: {
-	  maxWidth: 225,
+		maxWidth: 250,
+		// height: 'max-content',
 	  margin: '1em auto',
 	},
 	media: {
-	  height: 0,
-	  paddingTop: '56.25%', // 16:9
+		height: 0,
+		width: '250px',
+		paddingTop: '56.25%', // 16:9
+		
 	},
 	icon: {
 		color: 'rgba(255, 255, 255, 0.54)',
@@ -19,10 +22,7 @@ const styles = {
 		// maxWidth: 'max-content',
 		margin: '5em auto',
 	},
-	tile: {
-		height: 'auto', 
-		width: 250
-	}
+
   }
   class ProjectItem extends Component {
 	render() {
@@ -32,7 +32,7 @@ const styles = {
 				{this.props.projectList.map(function(project, i) {
 					let { title, img, link } = project
 					return (
-					<GridListTile key={i} style={classes.tile}>
+					<GridListTile key={i} style={{height: 'auto'}}>
 						<Card className={classes.card}>
 							<CardMedia className={classes.media} image={img} title={title} />
 							<CardContent>
