@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {withStyles} from '@material-ui/core/styles'
 import {Paper, TextField, Typography, Button } from '@material-ui/core'
+import ContactMsg from '../Controllers/ContactMsg'
 
 const styles = {
 	root: {
@@ -9,8 +10,6 @@ const styles = {
 		padding: '1.5em 3em'
 	},
 	textField: {
-		// marginLeft: theme.spacing.unit,
-		// marginRight: theme.spacing.unit,
 		width: 200,
 		margin: '1.5em auto',
 	},
@@ -39,13 +38,21 @@ class Contact extends Component {
 			})
 		}
 	}
-	handleSubmit = e => {
+	handleSubmit = async (e) => {
 		e.preventDefault()
 		let { target } = e
 		let name = target[0].value
 		let email = target[1].value
 		let msg = target[3].value
 		console.log('name: %s\nemail: %s\nmsg: %s\n', name, email, msg)
+		let message = new ContactMsg(name, email, msg)
+		let success = await message.add()
+		if (success) {
+			this.handleReset()
+			this.setState({
+				status: 'Message sent Successfully!'
+			})
+		}
 	}
 	handleReset = () => {
 		this.setState({
