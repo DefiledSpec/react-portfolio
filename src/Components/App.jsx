@@ -6,7 +6,8 @@ import { withStyles } from '@material-ui/core/styles'
 const styles = {
 	root: {
 		minHeight: '100vh',
-		position: 'relative'
+		position: 'relative',
+		background: 'url(./assets/img/dark-grey-terrazzo.png)'
 	}
 }
 

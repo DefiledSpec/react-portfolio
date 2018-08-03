@@ -1,44 +1,29 @@
-
-
-
 class ContactMsg {
-	constructor(name, email, msg) {
-		this.data = {
-			name,
-			email,
-			msg,
-		}
-	}
 	validate() {
-		return true
+		// todo: add some validation here
+		return false
 	}
-	async add() {
+	async add(data) {
 		if (this.validate()) {
 			const headers = new Headers()
-			headers.append('Content-Type', 'application/json')
+			headers.append('Content-Type', 'application/json')	
 			const options = {
 				method: 'POST',
 				headers,
-				body: JSON.stringify(this.data)
+				body: JSON.stringify(data)
 			}
 			const request = new Request('http://localhost:3005/api/messages/add', options)
 			try {
 				const res = await fetch(request)
-				if (res.ok) {
-					// let log = await res.json()
-					console.log('Message Sent successfully', await res.json())
-					return true				
-				} else {
-					return true
-				}	
-			}catch(err) {
-				return false
+				if (await res.ok) return true
+			} catch (err) {
+				throw err
 			}
 		} else {
+			console.log('Sorry this doesn\'t work yet..')
 			return false
-		}	
+		}
 	}
-
 }
 
-export default ContactMsg
+export default new ContactMsg()

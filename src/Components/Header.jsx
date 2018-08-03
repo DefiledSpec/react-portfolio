@@ -13,6 +13,9 @@ const styles = {
 	  marginLeft: -12,
 	  marginRight: 20,
 	},
+	appBar: {
+		background: '#24292e'
+	}
 }
 
 class Header extends Component {
@@ -20,7 +23,7 @@ class Header extends Component {
 		const { classes, siteName } = this.props
 		return (
 			<header className={classes.root}>
-				<AppBar position='static'>
+				<AppBar position='static' className={classes.appBar}>
 					<Toolbar>
 						<Typography variant='title' color='inherit' className={classes.flex}>
 							{siteName}
@@ -28,11 +31,11 @@ class Header extends Component {
 						<Button color='inherit' href='/'>About</Button>
 						<Button color='inherit' href='/'>Resume</Button>
 						<Button color='inherit' href='/projects'>Projects</Button>
-						<Button color='inherit' href='/contact'>Contact</Button>
+						<Button color='inherit' href='/contact'>Contact Me</Button>
 					</Toolbar>
 				</AppBar>
 				{/* <h2 className={`title`}>Jesse Harrah</h2>
-				<Icon icon={`menu`} _class='nav-icon'/>
+				<Icon icon={`menu`} iconClass='nav-icon'/>
 				<div className="clearfix"></div> */}
 
 			</header>
