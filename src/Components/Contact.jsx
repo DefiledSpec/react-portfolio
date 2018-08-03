@@ -6,7 +6,7 @@ import ContactMsg from '../Controllers/ContactMsg'
 const styles = {
 	root: {
 		maxWidth: 'max-content',
-		margin: '2em auto',
+		margin: '2.5em auto 5em auto',
 		padding: '1.5em 3em'
 	},
 	textField: {
@@ -28,7 +28,7 @@ class Contact extends Component {
 		this.state = {
 			name: '',
 			email: '',
-			message: '',			
+			msg: '',			
 		}
 	}
 	handleChange = element => ({target}) => {
@@ -40,19 +40,8 @@ class Contact extends Component {
 	}
 	handleSubmit = async (e) => {
 		e.preventDefault()
-		let { target } = e
-		let name = target[0].value
-		let email = target[1].value
-		let msg = target[3].value
-		console.log('name: %s\nemail: %s\nmsg: %s\n', name, email, msg)
-		let message = new ContactMsg(name, email, msg)
-		let success = await message.add()
-		if (success) {
-			this.handleReset()
-			this.setState({
-				status: 'Message sent Successfully!'
-			})
-		}
+		let { name, email, msg } = this.state
+		ContactMsg.add({name, email, msg})
 	}
 	handleReset = () => {
 		this.setState({
@@ -77,8 +66,8 @@ class Contact extends Component {
 						label="Multiline"
 						multiline
 						rowsMax="4"
-						value={this.state.message}
-						onChange={this.handleChange('message')}
+						value={this.state.msg}
+						onChange={this.handleChange('msg')}
 						className={classes.textField}
 						margin="normal"
 						style={{marginBottom: '3em'}}

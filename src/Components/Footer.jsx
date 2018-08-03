@@ -11,8 +11,10 @@ const styles = {
 		left: 0,
 		padding: '.6em',
 		margin: 'auto',
+		background: '#24292e',
 	},
 	small: {
+		color: 'ghostwhite',
 		fontSize: '.75em'
 	}
 }

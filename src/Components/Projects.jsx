@@ -1,19 +1,25 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import ProjectItem from './ProjectItem'
-import {Paper} from '@material-ui/core'
-import pController from '../Controllers/Projects'
-let projects = new pController()
+import { Paper, Typography } from '@material-ui/core'
+import ProjectController from '../Controllers/ProjectController'
+
 const styles = {
 	root: {
 		display: 'flex',
 		flexWrap: 'wrap',
 		justifyContent: 'space-around',
-		overflow: 'hidden',
-		maxWidth: '90vw',
+		maxWidth: '960px',
 		width: 'max-content',
-		margin: '3em auto',
+		margin: '2.5em auto 5em auto',
 		padding: '1em 1.5em',
+	},
+	display1: {
+		padding: '.55em',
+		margin: '0 auto 1em auto',
+		width: '80%',
+		color: '#24292e',
+		borderBottom: '#24292e solid 1.5px'
 	},
 	gridList: {
 		maxWidth: 800,
@@ -27,9 +33,8 @@ class Projects extends Component {
 			projects: []
 		}
 	}
-	
 	async componentWillMount() {		
-		let proj = await projects.getAll()
+		let proj = await ProjectController.getAll()
 		console.log(proj)
 		this.setState({
 			projects: proj
@@ -40,6 +45,9 @@ class Projects extends Component {
 		const {classes} = this.props
 		return (
 			<Paper className={classes.root}>
+				<Typography variant='display1' gutterBottom 
+					align='center' component='h1' 
+					className={classes.display1}>Recent Projects</Typography>
 				<ProjectItem projectList={this.state.projects} />
 			</Paper>
 		)
