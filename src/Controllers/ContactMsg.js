@@ -10,7 +10,7 @@ class ContactMsg {
 	}
 	async add(data) {
 		const headers = new Headers()
-		headers.apppend('Content-Type', 'application/json')
+		headers.append('Content-Type', 'application/json')
 
 		const options = {
 			method: 'POST',
