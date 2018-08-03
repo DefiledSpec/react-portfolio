@@ -38,7 +38,7 @@ class Contact extends Component {
 			})
 		}
 	}
-	handleSubmit = e => {
+	handleSubmit = async (e) => {
 		e.preventDefault()
 		let { name, email, msg } = this.state
 		ContactMsg.add({name, email, msg})
