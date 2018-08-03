@@ -34,7 +34,7 @@ const styles = {
 		return (
 			<GridList cols={3} className={classes.gridList}>
 				{this.props.projectList.map(function(project, i) {
-					let { title, img, link } = project
+					let { title, link, img } = project
 					return (
 					<GridListTile key={i} className={classes.tile} style={{height: 'auto'}}>
 						<Card className={classes.card}>
