@@ -1,16 +1,15 @@
 import React, {Component} from 'react'
 import {withStyles} from '@material-ui/core/styles'
 import {Paper, TextField, Typography, Button } from '@material-ui/core'
+import ContactMsg from '../Controllers/ContactMsg'
 
 const styles = {
 	root: {
 		maxWidth: 'max-content',
-		margin: '2em auto',
+		margin: '2.5em auto 5em auto',
 		padding: '1.5em 3em'
 	},
 	textField: {
-		// marginLeft: theme.spacing.unit,
-		// marginRight: theme.spacing.unit,
 		width: 200,
 		margin: '1.5em auto',
 	},
@@ -29,7 +28,7 @@ class Contact extends Component {
 		this.state = {
 			name: '',
 			email: '',
-			message: '',			
+			msg: '',			
 		}
 	}
 	handleChange = element => ({target}) => {
@@ -41,11 +40,8 @@ class Contact extends Component {
 	}
 	handleSubmit = e => {
 		e.preventDefault()
-		let { target } = e
-		let name = target[0].value
-		let email = target[1].value
-		let msg = target[3].value
-		console.log('name: %s\nemail: %s\nmsg: %s\n', name, email, msg)
+		let { name, email, msg } = this.state
+		ContactMsg.add({name, email, msg})
 	}
 	handleReset = () => {
 		this.setState({
@@ -70,8 +66,8 @@ class Contact extends Component {
 						label="Multiline"
 						multiline
 						rowsMax="4"
-						value={this.state.message}
-						onChange={this.handleChange('message')}
+						value={this.state.msg}
+						onChange={this.handleChange('msg')}
 						className={classes.textField}
 						margin="normal"
 						style={{marginBottom: '3em'}}

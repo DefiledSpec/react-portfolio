@@ -1,28 +1,29 @@
-
-
-
 class ContactMsg {
-	constructor() {
-
-	}
 	validate() {
-
+		// todo: add some validation here
+		return false
 	}
 	async add(data) {
-		const headers = new Headers()
-		headers.append('Content-Type', 'application/json')
-
-		const options = {
-			method: 'POST',
-			headers,
-			body: JSON.stringify(data)
+		if (this.validate()) {
+			const headers = new Headers()
+			headers.append('Content-Type', 'application/json')	
+			const options = {
+				method: 'POST',
+				headers,
+				body: JSON.stringify(data)
+			}
+			const request = new Request('http://localhost:3005/api/messages/add', options)
+			try {
+				const res = await fetch(request)
+				if (await res.ok) return true
+			} catch (err) {
+				throw err
+			}
+		} else {
+			console.log('Sorry this doesn\'t work yet..')
+			return false
 		}
-		const request = new Request('http://localhost:3001/v1/contact/add', options)
-		const res = await fetch(request)
 	}
-
-
-
 }
 
-export default Contact
+export default new ContactMsg()
