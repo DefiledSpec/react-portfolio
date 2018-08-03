@@ -20,7 +20,7 @@ class ContactMsg {
 				throw err
 			}
 		} else {
-			console.log('Sorry this doesn\'t work yet..')
+			alert('Sorry this doesn\'t work yet..')
 			return false
 		}
 	}
