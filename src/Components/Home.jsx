@@ -35,8 +35,8 @@ class Home extends Component {
 					<hr/>
 					<Avatar alt='Jesse Harrah' src='./assets/img/me.jpg' className={classNames(classes.avatar, classes.bigAvatar)} />
 					<Typography component='p' className={classes.about}>
-						Full Stack Web Developmer who knows HTML, CSS, JavaScript, Node.js, &amp; jQuery.
-                        I love technology and the rapid pace that it has moved at as well as solving problems. 
+						Full Stack Web Developer who knows HTML, CSS, JavaScript, Node.js, &amp; jQuery.
+                        I love technology and the rapid pace that it has moved at, as well as solving problems. 
                         I’m mechanically inclined and a quick learner. I’m currently seeking full-time employment in Web 
                         Development to broaden my skills and help make meaningful web applications.
 					</Typography>
