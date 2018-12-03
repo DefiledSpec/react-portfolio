@@ -1,6 +1,5 @@
 class ProjectController {
 	// add() {
-	// 	// todo: add functionallity to add projects to the db
 	// }
 	async getAll() {
 		const headers = new Headers()
