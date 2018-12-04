@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
 import {withStyles} from '@material-ui/core/styles'
-import {Paper, Typography, Avatar, Button} from '@material-ui/core'
+import {Paper, Typography, Avatar} from '@material-ui/core'
 import classNames from 'classnames'
 import ButtonIcon from './ButtonIcon'
-import Icon from './Icon'
 import { icons, bio } from '../data'
 
 const styles = {
@@ -66,7 +65,7 @@ class Home extends Component {
 			<Paper className={classes.root}>
 				<Typography variant='display1' gutterBottom align='center' component='h1' className={classes.display1}>About Me</Typography>
 				<div className="clearfix">
-					<Avatar alt='Jesse Harrah' src='./assets/img/me.jpg' className={classNames(classes.avatar, classes.bigAvatar)} />
+					<Avatar alt='Jesse Harrah' src='/api/img/me.jpg' className={classNames(classes.avatar, classes.bigAvatar)} />
 					<section className={classes.icons}>
 						{ myButtons }
 					</section>

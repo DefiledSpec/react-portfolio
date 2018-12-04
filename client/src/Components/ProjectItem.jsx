@@ -33,12 +33,12 @@ const styles = {
 		const {classes} = this.props
 		return (
 			<GridList cols={3} className={classes.gridList}>
-				{this.props.projectList.map(function(project, i) {
+				{this.props.projectList && this.props.projectList.map(function(project, i) {
 					let { name, link, img, github, desc } = project
 					return (
 					<GridListTile key={i} className={classes.tile} style={{height: 'auto'}}>
 						<Card className={classes.card}>
-							<CardMedia className={classes.media} image={'.' + img} title={name} />
+							<CardMedia className={classes.media} image={'api/img/' + img} title={name} />
 							<CardContent>
 								<Typography gutterBottom variant='headline' component='h3'>
 									{name}
@@ -54,7 +54,7 @@ const styles = {
 						</Card>
 					</GridListTile>
 					)
-				})}	
+				}) || <p></p>}	
 			</GridList>
 		)
 	}

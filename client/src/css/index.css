@@ -11,3 +11,6 @@
 	display: table;
 	clear: both;
 }
+tr{
+	border: 1px solid black;
+}

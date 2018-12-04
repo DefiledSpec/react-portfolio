@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { AppBar, Toolbar, Button, Typography } from '@material-ui/core'
 import {withStyles} from '@material-ui/core/styles'
+import {Link} from 'react-router-dom'
 
 const styles = {
 	root: {
@@ -28,10 +29,11 @@ class Header extends Component {
 						<Typography variant='title' color='inherit' className={classes.flex}>
 							{siteName}
 						</Typography>
-						<Button color='inherit' href='/'>About</Button>
-						<Button color='inherit' href='/'>Resume</Button>
-						<Button color='inherit' href='/projects'>Projects</Button>
-						<Button color='inherit' href='/contact'>Contact Me</Button>
+						<Button component={Link} color='inherit' to='/'>About</Button>
+						{/* <Button  component={Link} color='inherit' to='/'>Resume</Button> */}
+						<Button component={Link} color='inherit' to='/projects'>Projects</Button>
+						<Button component={Link} color='inherit' to='/contact'>Contact Me</Button>
+						<Button component={Link} color='inherit' to='/admin'>Admin</Button>
 					</Toolbar>
 				</AppBar>
 				{/* <h2 className={`title`}>Jesse Harrah</h2>
