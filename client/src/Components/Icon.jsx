@@ -9,7 +9,6 @@ class Icon extends Component {
 			alt: alt || '',
 			type
 		}
-		console.log(this.state)
 	}
 	render() {
 		return (

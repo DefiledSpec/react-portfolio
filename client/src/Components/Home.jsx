@@ -3,7 +3,8 @@ import {withStyles} from '@material-ui/core/styles'
 import {Paper, Typography, Avatar} from '@material-ui/core'
 import classNames from 'classnames'
 import ButtonIcon from './ButtonIcon'
-import { icons, bio } from '../data'
+import { icons } from '../data'
+import ProjectController from '../Controllers/ProjectController'
 
 const styles = {
 	display1: {
@@ -50,11 +51,20 @@ const styles = {
 
 
 class Home extends Component {
+	state = {
+		bio: ''
+	}
+	async componentWillMount() {
+		let bio = await ProjectController.getBio()
+		if(bio && bio !== '') this.setState({ bio })
+	}
 
 	createIcons = () => {
 		let myIcons = []
+		let key = 0
 		for (const icon of icons) {
-			myIcons.push(<ButtonIcon icon={icon} mdClass={this.props.classes.mdIcon} />)
+			myIcons.push(<ButtonIcon key={key} icon={icon} mdClass={this.props.classes.mdIcon} />)
+			key++
 		}
 			return myIcons
 	}
@@ -70,7 +80,7 @@ class Home extends Component {
 						{ myButtons }
 					</section>
 					<Typography component='p' className={classes.about}>
-						{ bio }
+						{ this.state.bio }
 					</Typography>					
 				</div>
 			</Paper>

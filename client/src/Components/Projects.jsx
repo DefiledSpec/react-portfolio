@@ -10,7 +10,7 @@ const styles = {
 		flexWrap: 'wrap',
 		justifyContent: 'space-around',
 		maxWidth: '960px',
-		width: 'max-content',
+		// width: 'max-content',
 		margin: '2.5em auto 5em auto',
 		padding: '1em 1.5em',
 	},
@@ -33,13 +33,15 @@ class Projects extends Component {
 			projects: []
 		}
 	}
-	async componentWillMount() {		
+	componentWillMount() {		
+		this.updateProjects()
+	}
+	async updateProjects() {
 		let proj = await ProjectController.getAll()
-		console.log(proj)
 		this.setState({
 			projects: proj
 		})
-		console.log(this.state.projects)
+		// console.log(this.state.projects)
 	}
 	render() {
 		const {classes} = this.props

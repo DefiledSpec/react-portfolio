@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom'
 const styles = {
 	root: {
 	  flexGrow: 1,
+	  width: '100%',
 	},
 	flex: {
 	  flexGrow: 1,
@@ -20,6 +21,14 @@ const styles = {
 }
 
 class Header extends Component {
+	state = {
+		admin: false
+	}
+	async componentWillMount() {
+		let bool = await fetch('/api/admin')
+		let auth = await bool.json()
+		this.setState({ admin: auth })
+	}
 	render() {
 		const { classes, siteName } = this.props
 		return (
@@ -33,7 +42,7 @@ class Header extends Component {
 						{/* <Button  component={Link} color='inherit' to='/'>Resume</Button> */}
 						<Button component={Link} color='inherit' to='/projects'>Projects</Button>
 						<Button component={Link} color='inherit' to='/contact'>Contact Me</Button>
-						<Button component={Link} color='inherit' to='/admin'>Admin</Button>
+						{this.state.admin && <Button component={Link} color='inherit' to='/admin'>Admin</Button>}
 					</Toolbar>
 				</AppBar>
 				{/* <h2 className={`title`}>Jesse Harrah</h2>

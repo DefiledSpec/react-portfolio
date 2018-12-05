@@ -5,11 +5,11 @@ import { Card, CardActions, CardContent, CardMedia, Button, Typography, GridList
 const styles = {
 	card: {
 		maxWidth: '225px',
-		// height: 'max-content',
+		height: '275px',
 	  	margin: '1em auto',
 	},
 	media: {
-		height: 0,
+		maxHeight: '175px',
 		width: '225px',
 		paddingTop: '56.25%', // 16:9
 		
@@ -33,14 +33,14 @@ const styles = {
 		const {classes} = this.props
 		return (
 			<GridList cols={3} className={classes.gridList}>
-				{this.props.projectList && this.props.projectList.map(function(project, i) {
-					let { name, link, img, github, desc } = project
+				{(this.props.projectList && this.props.projectList.map(function(project, i) {
+					let { name, link, img, github, desc, _id } = project
 					return (
-					<GridListTile key={i} className={classes.tile} style={{height: 'auto'}}>
+					<GridListTile key={_id} id={_id} className={classes.tile} style={{height: 'auto'}}>
 						<Card className={classes.card}>
 							<CardMedia className={classes.media} image={'api/img/' + img} title={name} />
 							<CardContent>
-								<Typography gutterBottom variant='headline' component='h3'>
+								<Typography gutterBottom variant='title' component='h4'>
 									{name}
 								</Typography>
 								<Typography component='p'>
@@ -54,7 +54,7 @@ const styles = {
 						</Card>
 					</GridListTile>
 					)
-				}) || <p></p>}	
+				})) || <p></p>}	
 			</GridList>
 		)
 	}
