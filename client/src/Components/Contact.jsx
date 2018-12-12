@@ -14,9 +14,12 @@ const styles = {
 		width: 200,
 		margin: '1.5em auto',
 	},
-	headline: {
-		margin: '.5em auto',
-		width: 'max-content'
+	display1: {
+		margin: '.5em auto 0 auto',
+		width: '100%',
+		borderBottom: 'solid black 1px',
+		textAlign: 'center',
+		padding: '.55em',
 	},
 	buttonsContainer: {
 		display: 'flex',
@@ -59,8 +62,7 @@ class Contact extends Component {
 		const {classes} = this.props
 		return (
 			<Paper className={classes.root}>
-			<Typography gutterBottom variant='headline' component='h3' className={classes.headline}>Contact Me</Typography>
-			<hr/>
+				<Typography gutterBottom variant='headline' component='h3' className={classes.display1}>Contact Me</Typography>
 				<form className={classes.container} noValidate autoComplete='off' onSubmit={this.handleSubmit.bind(this)} onReset={this.handleReset}>
 					<TextField id='name' label='Name' className={classes.textField} value={this.state.name} onChange={this.handleChange('name')} margin='normal' />
 					<br/>
@@ -75,7 +77,7 @@ class Contact extends Component {
 						onChange={this.handleChange('msg')}
 						className={classes.textField}
 						margin="normal"
-						style={{marginBottom: '3em'}}
+						style={{ marginBottom: '3em' }}
 					/>
 					<br/>
 					<Button type='submit' color='primary' variant='raised' >Submit</Button>
