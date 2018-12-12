@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {withStyles} from '@material-ui/core/styles'
 import {Paper, TextField, Typography, Button } from '@material-ui/core'
 import ContactMsg from '../Controllers/ContactMsg'
+import { red } from '@material-ui/core/colors'
 
 const styles = {
 	root: {
@@ -17,8 +18,12 @@ const styles = {
 		margin: '.5em auto',
 		width: 'max-content'
 	},
-	submit: {
-		float: 'right'
+	buttonsContainer: {
+		display: 'flex',
+		alignContents: 'justify'
+	},
+	reset: {
+		float: 'right',
 	}
 }
 
@@ -73,8 +78,8 @@ class Contact extends Component {
 						style={{marginBottom: '3em'}}
 					/>
 					<br/>
-					<Button type='reset' color='secondary' variant='raised'>Reset</Button>
-					<Button type='submit' color='primary' variant='raised' className={classes.submit}>Submit</Button>
+					<Button type='submit' color='primary' variant='raised' >Submit</Button>
+					<Button type='reset' variant='raised' style={{background: red['700'], color: 'ghostwhite'}} className={classes.reset}>Reset</Button>
 				</form>
 			</Paper>
 		)

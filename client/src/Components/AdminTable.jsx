@@ -1,16 +1,8 @@
 import React, {Component} from 'react'
 import {withStyles} from '@material-ui/core/styles'
-import {Paper, Typography} from '@material-ui/core'
+import { Table, TableBody, TableCell, TableFooter, TablePagination, TableRow } from '@material-ui/core'
 import ProjectController from '../Controllers/ProjectController'
-// import classNames from 'classnames'
-// import ButtonIcon from './ButtonIcon'
 import TablePaginationActions from './mui/TablePaginationActions'
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableFooter from '@material-ui/core/TableFooter';
-import TablePagination from '@material-ui/core/TablePagination';
-import TableRow from '@material-ui/core/TableRow';
 
 const styles = {
 	display1: {
@@ -78,7 +70,6 @@ class Admin extends Component {
 	render() {
 		const {classes} = this.props
 		const { projects, rowsPerPage, page } = this.state;
-		// const emptyRows = rowsPerPage - Math.min(rowsPerPage, projects.length - page * rowsPerPage);
 		return (
 			<div className={classes.tableWrapper}>
 			<Table className={classes.table}>
@@ -96,11 +87,6 @@ class Admin extends Component {
 							</TableRow>
 						);
 					})}
-					{/* {emptyRows > 0 && (
-						<TableRow style={{ height: 48 * emptyRows }}>
-							<TableCell colSpan={6} />
-						</TableRow>
-					)} */}
 				</TableBody>
 				<TableFooter>
 					<TableRow>
@@ -110,9 +96,9 @@ class Admin extends Component {
 							count={projects.length}
 							rowsPerPage={rowsPerPage}
 							page={page}
-							// SelectProps={{
-							// 	native: true,
-							// }}
+							SelectProps={{
+								native: false,
+							}}
 							onChangePage={this.handleChangePage}
 							onChangeRowsPerPage={this.handleChangeRowsPerPage}
 							ActionsComponent={TablePaginationActions}

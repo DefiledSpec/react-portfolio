@@ -1,4 +1,3 @@
-// import { projects } from '../data'
 
 class ProjectController {
 	async getAll() {
