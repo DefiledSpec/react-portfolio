@@ -25,10 +25,11 @@ class Header extends Component {
 		admin: false
 	}
 	async componentWillMount() {
-		console.log(localStorage)
-		let bool = await fetch('/api/admin/'+ localStorage.getItem('auth'))
-		let auth = await bool.json()
-		this.setState({ admin: auth })
+		if(localStorage.getItem('auth')) {
+			let bool = await fetch('/api/admin/'+ localStorage.getItem('auth'))
+			let auth = await bool.json()
+			this.setState({ admin: auth })
+		}
 	}
 	render() {
 		const { classes, siteName } = this.props
