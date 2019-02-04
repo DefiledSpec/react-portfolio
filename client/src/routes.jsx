@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route} from 'react-router-dom'
 import Home from './Components/Home'
 import Projects from './Components/Projects'
 import Contact from './Components/Contact'
-import Admin from './Components/Admin'
+import { Admin } from './Components/'
 import App from './Components/App'
 import Resume from './Components/Resume'
 

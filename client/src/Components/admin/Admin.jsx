@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import { Paper, Typography } from '@material-ui/core'
-import ProjectController from '../Controllers/ProjectController'
+import ProjectController from '../../Controllers/ProjectController'
 // import classNames from 'classnames'
 // import ButtonIcon from './ButtonIcon'
 import AdminTable from './AdminTable'
@@ -50,18 +50,29 @@ class Admin extends Component {
 			link: '',
 			img: '',
 			hasSite: false,
-			count: 0
+			count: 0,
+			admin: false
 		}
 		// this.handleDelete.bind(this)
 	}
 
-	componentDidMount() {
-		// this.buildList()
+	async componentWillMount() {
+		if(localStorage.getItem('auth')) {
+			let bool = await fetch('/api/admin/'+ localStorage.getItem('auth'))
+			let auth = await bool.json()
+			if(!auth) {
+				return window.location = '/'
+			}
+			this.setState({ admin: auth })
+		} else {
+			return window.location = '/'
+		}
 	}
 	componentWillUnmount() {
 	}
 	handleChange = (e) => {
 		let { name, value } = e.target
+		if(name === 'img') this.setState({ img: value})
 		if (name === 'link' && value !== '' && !this.state.hasSite) {
 			this.setState({ hasSite: true })
 		}
@@ -105,9 +116,8 @@ class Admin extends Component {
 	// }
 	render() {
 		const { classes } = this.props
-		let { count } = this.state
-		console.log(localStorage.getItem('secret'))
-		return (
+		let { admin, count } = this.state
+		return (admin &&
 			<Paper className={classes.root}>
 				<Typography variant='display1' gutterBottom align='center' className={classes.display1}>Admin Panel</Typography>
 				<Paper className={classes.table} elevation={0}>
@@ -115,18 +125,25 @@ class Admin extends Component {
 					<AdminTable onRef={ref => this.child = ref} />
 					<br />
 					<Typography variant='subheading' gutterBottom align='center' component='p'>Add New Project</Typography>
-					<form onSubmit={this.submitProject} className={classes.form}>
+					<form onSubmit={this.submitProject} className={classes.form} encType="multipart/form-data">
 						<input onChange={this.handleChange} value={this.state.name} placeholder='Project Name' type="text" name="name" />
 						<input onChange={this.handleChange} value={this.state.github} placeholder='Github Link' type="link" name="github" />
 						<br />
 						<input onChange={this.handleChange} value={this.state.link} placeholder='link' type="text" name="link" />
-						<input onChange={this.handleChange} value={this.state.img} placeholder='img' type="text" name="img" />
+						<input onChange={this.handleChange} value={this.state.img} placeholder='img' type="file" name="img" />
 						<br />
-						<input type="submit" />
+						<input type="submit" value="Submit" />
 					</form>
 				</Paper>
 				<div className="clearfix"></div>
 			</Paper>
+			|| 	<Paper>
+					<Typography 
+						variant='display1' 
+						gutterBottom align='center' 
+						className={classes.display1}>Loading
+					</Typography>
+				</Paper>
 		)
 	}
 }

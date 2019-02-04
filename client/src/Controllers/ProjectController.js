@@ -14,7 +14,8 @@ class ProjectController {
 	}
 	async addProject(project) {
 		const headers = new Headers()
-		headers.append('Content-Type', 'application/json')
+		// headers.append('Content-Type', 'application/json')
+		console.log(project)
 		const options = {
 			method: 'POST',
 			headers,
@@ -22,7 +23,12 @@ class ProjectController {
 		}
 		const request = new Request('api/projects', options)
 		let res = await fetch(request)
-		return await res.json()
+		console.dir(await res.json)
+		try {
+			return await res.json()		
+		} catch (error) {
+			console.log(error)
+		}
 	}
 	async delete(id) {
 		const headers = new Headers()

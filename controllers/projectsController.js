@@ -1,11 +1,12 @@
 const db = require("../models");
 
+
 // Defining methods for the booksController
 
 // could use a callback here
 module.exports = {
 	findAll: function (req, res) {
-		console.log('finding')
+		// console.log('finding')
 		db.Project
 			.find(req.query)
 			.then(dbModel => res.json(dbModel))
@@ -19,6 +20,7 @@ module.exports = {
 	},
 	create: function (req, res) {
 		console.log(req.body)
+		
 		db.Project
 			.create(req.body)
 			.then(dbModel => res.json(dbModel))

@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {withStyles} from '@material-ui/core/styles'
 import { Table, TableBody, TableCell, TableFooter, TablePagination, TableRow } from '@material-ui/core'
-import ProjectController from '../Controllers/ProjectController'
-import TablePaginationActions from './mui/TablePaginationActions'
+import ProjectController from '../../Controllers/ProjectController'
+import TablePaginationActions from '../mui/TablePaginationActions'
 
 const styles = {
 	display1: {

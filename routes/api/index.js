@@ -11,6 +11,7 @@ router.use("/projects", projectsRoutes);
 router.use('/img', imgRoutes)
 router.use('/bio', bioRoutes)
 router.use('/admin/:secret', (req, res) => {
+	// console.log(req.params.secret === process.env.AUTHSECRET)
 	res.send(req.params.secret === process.env.AUTHSECRET)
 })
 
