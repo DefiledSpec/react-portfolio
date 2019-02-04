@@ -20,11 +20,14 @@ const styles = {
 }
 
 class Footer extends Component {
+
+	
 	render() {
+		let year = (new Date).getFullYear()
 		let { classes } = this.props
 		return (
 			<footer className={classes.root}>
-				<Typography className={classes.small}>All Rights Reserved. &copy; Copyright 2018 - 20**</Typography>
+				<Typography className={classes.small}>All Rights Reserved. &copy; Copyright 2018 - { year }</Typography>
 			</footer>
 		)
 	}

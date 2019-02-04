@@ -7,7 +7,7 @@ const styles = {
 	root: {
 		minHeight: '100vh',
 		position: 'relative',
-		background: 'url(./assets/img/dark-grey-terrazzo.png)'
+		background: 'url(./assets/img/scuffedstatic.jpg)'
 	}
 }
 

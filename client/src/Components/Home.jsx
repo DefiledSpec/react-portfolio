@@ -18,7 +18,6 @@ const styles = {
 		maxWidth: '960px',
 		margin: '2.5em auto 5em auto',
 		padding: '1em 2em',
-
 	},
 	avatar: {
 		margin: '2em auto 0 auto',

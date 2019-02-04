@@ -25,12 +25,14 @@ class Header extends Component {
 		admin: false
 	}
 	async componentWillMount() {
-		let bool = await fetch('/api/admin')
+		console.log(localStorage)
+		let bool = await fetch('/api/admin/'+ localStorage.getItem('auth'))
 		let auth = await bool.json()
 		this.setState({ admin: auth })
 	}
 	render() {
 		const { classes, siteName } = this.props
+		
 		return (
 			<header className={classes.root}>
 				<AppBar position='static' className={classes.appBar}>
@@ -39,7 +41,7 @@ class Header extends Component {
 							{siteName}
 						</Typography>
 						<Button component={Link} color='inherit' to='/'>About</Button>
-						{/* <Button  component={Link} color='inherit' to='/'>Resume</Button> */}
+						<Button  component={Link} color='inherit' to='/resume'>Resume</Button>
 						<Button component={Link} color='inherit' to='/projects'>Projects</Button>
 						<Button component={Link} color='inherit' to='/contact'>Contact Me</Button>
 						{this.state.admin && <Button component={Link} color='inherit' to='/admin'>Admin</Button>}

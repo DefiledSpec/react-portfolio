@@ -106,6 +106,7 @@ class Admin extends Component {
 	render() {
 		const { classes } = this.props
 		let { count } = this.state
+		console.log(localStorage.getItem('secret'))
 		return (
 			<Paper className={classes.root}>
 				<Typography variant='display1' gutterBottom align='center' className={classes.display1}>Admin Panel</Typography>
