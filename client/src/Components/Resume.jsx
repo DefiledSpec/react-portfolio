@@ -36,7 +36,7 @@ class Resume extends Component {
 				<hr/>
 				{/** todo: fix resume iframe in production */}
 				{/** !!! Iframe is blank in production even though the file exists in this location !!! */}
-				<iframe title="Personal Resume" className={pdf} src="./assets/docs/Resume.pdf" />
+				<iframe title="Personal Resume" className={pdf} src="https://jesse-harrah.herokuapp.com/assets/docs/Resume.pdf" />
 			</Paper>
 		)
 	}
