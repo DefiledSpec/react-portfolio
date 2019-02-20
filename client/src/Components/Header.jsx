@@ -42,7 +42,8 @@ class Header extends Component {
 							{siteName}
 						</Typography>
 						<Button component={Link} color='inherit' to='/'>About</Button>
-						<Button component={Link} color='inherit' to='/resume'>Resume</Button>
+						{/* todo: fix resume page */}
+						{/* <Button component={Link} color='inherit' to='/resume'>Resume</Button> */}
 						<Button component={Link} color='inherit' to='/projects'>Projects</Button>
 						<Button component={Link} color='inherit' to='/contact'>Contact Me</Button>
 						{this.state.admin && <Button component={Link} color='inherit' to='/admin'>Admin</Button>}

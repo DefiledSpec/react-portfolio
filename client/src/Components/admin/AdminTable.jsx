@@ -60,13 +60,18 @@ class Admin extends Component {
 			this.getProjects()
 		}
 	}
+	handleUpdate = async (id) => {
+		if(id) {
+			
+		}
+	}
 	handleChangePage = (event, page) => {
 		this.setState({ page });
 	  };
 	
-	  handleChangeRowsPerPage = event => {
-		this.setState({ rowsPerPage: event.target.value });
-	  };
+	handleChangeRowsPerPage = event => {
+	this.setState({ rowsPerPage: event.target.value });
+	};
 	render() {
 		const {classes} = this.props
 		const { projects, rowsPerPage, page } = this.state;
