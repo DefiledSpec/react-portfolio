@@ -44,13 +44,15 @@ const styles = {
 								<Typography gutterBottom variant='title' component='h4' style={{color: 'ghostwhite'}}>
 									{name}
 								</Typography>
+								<hr/>
+
 								<Typography component='p' style={{color: 'ghostwhite'}}>
 									{desc}
 								</Typography>
 							</CardContent>
 							<CardActions>
-								{link && <Button target='_blank' href={link} size='small' color='primary' style={{color: 'ghostwhite'}}>Website</Button>}
-								{github && <Button href={github} target='_blank' size='small' color='primary' style={{color: 'ghostwhite'}}>GitHub</Button>}
+								{link && <Button variant="outlined" target='_blank' href={link} size='small' color='primary' style={{color: 'ghostwhite'}}>Website</Button>}
+								{github && <Button variant="outlined" href={github} target='_blank' size='small' color='primary' style={{color: 'ghostwhite'}}>GitHub</Button>}
 							</CardActions>
 						</Card>
 					</GridListTile>

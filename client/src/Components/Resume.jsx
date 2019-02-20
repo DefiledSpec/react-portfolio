@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import { Paper, Typography } from '@material-ui/core'
-import { toUnicode } from 'punycode';
+// import { toUnicode } from 'punycode';
 
 const styles = {
 	root: {
@@ -24,12 +24,12 @@ const styles = {
 }
 
 class Resume extends Component {
-	state = {
-		pdfLink: './assets/docs/Resume.pdf'
-	}
+	// state = {
+	// 	pdfLink: './assets/docs/Resume.pdf'
+	// }
 	render() { 
 		const { root, pdf, display1 } = this.props.classes
-		const { pdfLink } = this.state
+		// const { pdfLink } = this.state
 		return (
 			<Paper className={root}>
 				<Typography variant='display1' gutterBottom align='center' component='h1' className={display1}>Personal Resume</Typography>
