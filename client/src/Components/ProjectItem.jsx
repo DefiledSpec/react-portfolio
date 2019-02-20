@@ -32,6 +32,8 @@ const styles = {
   class ProjectItem extends Component {
 	render() {
 		const {classes} = this.props
+
+		// todo: make this mobile responsive 
 		return (
 			<GridList cols={3} className={classes.gridList}>
 				{(this.props.projectList && this.props.projectList.map(function(project, i) {
@@ -41,14 +43,14 @@ const styles = {
 						<Card className={classes.card}>
 							<CardMedia className={classes.media} image={'api/img/' + img} title={name} />
 							<CardContent>
-								<Typography gutterBottom variant='title' component='h4' style={{color: 'ghostwhite'}}>
-									{name}
-								</Typography>
-								<hr/>
-
-								<Typography component='p' style={{color: 'ghostwhite'}}>
+								{name && <div><Typography gutterBottom variant='title' component='h4' style={{color: 'ghostwhite'}}>
+										{name}
+									</Typography>
+									<hr/>
+								</div>}
+								{desc && <Typography component='p' style={{color: 'ghostwhite'}}>
 									{desc}
-								</Typography>
+								</Typography>}
 							</CardContent>
 							<CardActions>
 								{link && <Button variant="outlined" target='_blank' href={link} size='small' color='primary' style={{color: 'ghostwhite'}}>Website</Button>}

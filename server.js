@@ -27,6 +27,6 @@ app.listen(PORT, function() {
 
   // Helps to keep the deployment live on Heroku
 	setInterval(function() {
-		http.get("http://osrs-news-scraper.herokuapp.com");
+		http.get("http://jesse-harrah.herokuapp.com");
 	}, 600000); // every 10 minutes
 });
