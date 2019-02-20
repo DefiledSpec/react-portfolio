@@ -36,7 +36,8 @@ class Contact extends Component {
 		this.state = {
 			name: '',
 			email: '',
-			msg: '',			
+			msg: '',
+			message: ''		
 		}
 	}
 	handleChange = element => ({target}) => {
@@ -49,13 +50,17 @@ class Contact extends Component {
 	handleSubmit = async (e) => {
 		e.preventDefault()
 		let { name, email, msg } = this.state
-		ContactMsg.add({name, email, msg})
+		let isSent = ContactMsg.add({name, email, msg})
+		if(isSent) {
+			this.setState({message: 'Your message has been sent!'})
+			this.handleReset()
+		}
 	}
 	handleReset = () => {
 		this.setState({
 			name: '',
 			email: '',
-			message: '',
+			msg: '',
 		})
 	}
 	render() {
@@ -63,6 +68,7 @@ class Contact extends Component {
 		return (
 			<Paper className={classes.root}>
 				<Typography gutterBottom variant='headline' component='h3' className={classes.display1}>Contact Me</Typography>
+				{this.state.message && <div><br /><p>{this.state.message}</p></div>}
 				<form className={classes.container} noValidate autoComplete='off' onSubmit={this.handleSubmit.bind(this)} onReset={this.handleReset}>
 					<TextField id='name' label='Name' className={classes.textField} value={this.state.name} onChange={this.handleChange('name')} margin='normal' />
 					<br/>
@@ -70,13 +76,14 @@ class Contact extends Component {
 					<br/>
 					<TextField
 						id="multiline-flexible"
-						label="Multiline"
+						label="Questions / Comments"
 						multiline
-						rowsMax="4"
+						rowsMax="10"
 						value={this.state.msg}
 						onChange={this.handleChange('msg')}
 						className={classes.textField}
 						margin="normal"
+						name="msg"
 						style={{ marginBottom: '3em' }}
 					/>
 					<br/>

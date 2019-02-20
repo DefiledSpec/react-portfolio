@@ -1,6 +1,6 @@
 const express = require("express");
 const logger = require('morgan')
-const schedule = require('node-schedule')
+// const schedule = require('node-schedule')
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();

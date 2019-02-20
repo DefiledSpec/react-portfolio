@@ -1,23 +1,18 @@
+import axios from 'axios'
+
 class ContactMsg {
-	validate() {
+	validate(data) {
 		// todo: add some validation here
-		return false
+		// console.log(data)
+		return true
 	}
 	async add(data) {
-		if (this.validate()) {
-			const headers = new Headers()
-			headers.append('Content-Type', 'application/json')	
-			const options = {
-				method: 'POST',
-				headers,
-				body: JSON.stringify(data)
-			}
-			const request = new Request('http://localhost:3005/api/messages/add', options)
+		if (this.validate(data)) {
 			try {
-				const res = await fetch(request)
-				if (await res.ok) return true
+				const res = await axios.post('api/contact', data)
+				if (res.ok) return true
 			} catch (err) {
-				throw err
+				return false
 			}
 		} else {
 			alert('Sorry this doesn\'t work yet..')
