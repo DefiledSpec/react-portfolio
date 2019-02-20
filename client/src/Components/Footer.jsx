@@ -23,7 +23,7 @@ class Footer extends Component {
 
 	
 	render() {
-		let year = (new Date).getFullYear()
+		let year = (new Date()).getFullYear()
 		let { classes } = this.props
 		return (
 			<footer className={classes.root}>

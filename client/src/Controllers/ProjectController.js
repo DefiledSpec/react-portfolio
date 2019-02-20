@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 
 class ProjectController {
 	async getAll() {
@@ -22,10 +24,10 @@ class ProjectController {
 			body: JSON.stringify(project)
 		}
 		const request = new Request('api/projects', options)
-		let res = await fetch(request)
-		console.dir(await res.json)
+		let res = await axios.post('api/projects', project)
+		console.dir(res)
 		try {
-			return await res.json()		
+			return res		
 		} catch (error) {
 			console.log(error)
 		}

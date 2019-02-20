@@ -101,7 +101,8 @@ class Admin extends Component {
 				this.setState({hasSite: true})
 				let update = inputs
 				update.hasSite = true
-				await ProjectController.addProject(update)
+				let added = await ProjectController.addProject(update)
+				console.log('update', added)
 			} else {
 				await ProjectController.addProject(inputs)
 			}
@@ -130,7 +131,7 @@ class Admin extends Component {
 						<input onChange={this.handleChange} value={this.state.github} placeholder='Github Link' type="link" name="github" />
 						<br />
 						<input onChange={this.handleChange} value={this.state.link} placeholder='link' type="text" name="link" />
-						<input onChange={this.handleChange} value={this.state.img} placeholder='img' type="file" name="img" />
+						<input onChange={this.handleChange} value={this.state.img} placeholder='img' type="text" name="img" />
 						<br />
 						<input type="submit" value="Submit" />
 					</form>
