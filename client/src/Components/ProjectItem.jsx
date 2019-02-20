@@ -6,7 +6,8 @@ const styles = {
 	card: {
 		maxWidth: '225px',
 		height: '275px',
-	  	margin: '1em auto',
+		  margin: '1em auto',
+		  background: '#24292e'
 	},
 	media: {
 		maxHeight: '175px',
@@ -40,16 +41,16 @@ const styles = {
 						<Card className={classes.card}>
 							<CardMedia className={classes.media} image={'api/img/' + img} title={name} />
 							<CardContent>
-								<Typography gutterBottom variant='title' component='h4'>
+								<Typography gutterBottom variant='title' component='h4' style={{color: 'ghostwhite'}}>
 									{name}
 								</Typography>
-								<Typography component='p'>
+								<Typography component='p' style={{color: 'ghostwhite'}}>
 									{desc}
 								</Typography>
 							</CardContent>
 							<CardActions>
-								{link && <Button target='_blank' href={link} size='small' color='primary'>Website</Button>}
-								{github && <Button href={github} target='_blank' size='small' color='primary'>GitHub</Button>}
+								{link && <Button target='_blank' href={link} size='small' color='primary' style={{color: 'ghostwhite'}}>Website</Button>}
+								{github && <Button href={github} target='_blank' size='small' color='primary' style={{color: 'ghostwhite'}}>GitHub</Button>}
 							</CardActions>
 						</Card>
 					</GridListTile>

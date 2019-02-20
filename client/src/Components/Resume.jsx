@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import { Paper, Typography } from '@material-ui/core'
+import { toUnicode } from 'punycode';
 
 const styles = {
 	root: {
@@ -14,8 +15,12 @@ const styles = {
 		height: '80vh'
 	},
 	display1: {
-
-	}
+		padding: '.55em',
+		margin: '0 auto .75em auto',
+		width: '80%',
+		color: '#24292e',
+		borderBottom: '#24292e solid .5px'
+	},
 }
 
 class Resume extends Component {
@@ -27,8 +32,11 @@ class Resume extends Component {
 		const { pdfLink } = this.state
 		return (
 			<Paper className={root}>
-				<Typography variant='display1' gutterBottom align='center' component='h1' className={display1}></Typography> 
-				<iframe className={pdf} src="./assets/docs/Resume.pdf" />
+				<Typography variant='display1' gutterBottom align='center' component='h1' className={display1}>Personal Resume</Typography>
+				<hr/>
+				{/** todo: fix resume iframe in production */}
+				{/** !!! Iframe is blank in production even though the file exists in this location !!! */}
+				<iframe title="Personal Resume" className={pdf} src="./assets/docs/Resume.pdf" />
 			</Paper>
 		)
 	}
