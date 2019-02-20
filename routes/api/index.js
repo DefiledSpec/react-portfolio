@@ -8,6 +8,8 @@ const emailer = require('../../email')
 router.use("/projects", projectsRoutes);
 router.use('/img', imgRoutes)
 router.use('/bio', bioRoutes)
+
+// todo: move this into its own routes file, possibly a controller as well?
 router.post('/contact', (req, res) => {
 	let { name, email, msg: comment } = req.body
 	console.log(req.body)
@@ -31,15 +33,14 @@ router.post('/contact', (req, res) => {
 		res.render('contact', { msg: 'Name, Email and Message fields are required!' })
 	}
 })
+
+// todo: move login, register and admin to its own file
 router.post('/login', (req, res) => {
 	console.log(req.body)
 })
 router.post('/register', (req, res) => {
 	console.log(req.body)
 })
-router.use('/admin/:secret', (req, res) => {
-	// console.log(req.params.secret === process.env.AUTHSECRET)
-	res.send(req.params.secret === process.env.AUTHSECRET)
-})
+router.use('/admin/:secret', (req, res) => res.send(req.params.secret === process.env.AUTHSECRET))
 
 module.exports = router;

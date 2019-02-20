@@ -23,8 +23,8 @@ const styles = {
 		margin: '2em auto 0 auto',
 	},
 	bigAvatar: {
-		width: 140,
-		height: 140,
+		width: 225,
+		height: 225,
 	},
 	about: {
 		fontSize: '1.4em',
