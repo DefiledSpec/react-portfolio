@@ -48,13 +48,13 @@ const styles = {
 								</Typography>
 							</CardContent>
 							<CardActions>
-								{link && <Button href={link} size='small' color='primary'>Project</Button>}
-								{github && <Button href={github} size='small' color='primary'>GitHub</Button>}
+								{link && <Button target='_blank' href={link} size='small' color='primary'>Website</Button>}
+								{github && <Button href={github} target='_blank' size='small' color='primary'>GitHub</Button>}
 							</CardActions>
 						</Card>
 					</GridListTile>
 					)
-				})) || <p></p>}	
+				})) || <p>There are no projects to display!</p>}	
 			</GridList>
 		)
 	}
