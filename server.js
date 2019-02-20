@@ -1,8 +1,10 @@
 const express = require("express");
 const logger = require('morgan')
+const schedule = require('node-schedule')
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
+
 const PORT = process.env.PORT || 3001;
 
 // Define middleware here
@@ -21,5 +23,10 @@ mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/mysite`);
 
 // Start the API server
 app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+  console.log(`App listening at http://localhost:${PORT}`)
+
+  // Helps to keep the deployment live on Heroku
+	setInterval(function() {
+		http.get("http://osrs-news-scraper.herokuapp.com");
+	}, 600000); // every 10 minutes
 });
