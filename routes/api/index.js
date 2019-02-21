@@ -23,14 +23,14 @@ router.post('/contact', (req, res) => {
 		emailer.sendMail(emailOpts, (err, info) => {
 			if(err) {
 				console.log(err)
-				res.render('contact', { msg: 'There was a problem sending the email. Please try again!' })
+				res.send({ msg: 'There was a problem sending the email. Please try again!', ok: false })
 			} else {
-				res.render('contact', { msg: 'Email Sent Successfully!' })
+				res.send({ msg: 'Email Sent Successfully!', ok: true })
 			}
 			console.log(info)
 		})
 	} else {
-		res.render('contact', { msg: 'Name, Email and Message fields are required!' })
+		res.send({ msg: 'Name, Email and Message fields are required!', ok: false })
 	}
 })
 

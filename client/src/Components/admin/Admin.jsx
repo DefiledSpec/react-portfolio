@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
-import { Paper, Typography } from '@material-ui/core'
+import { Paper, Typography, TextField, Badge } from '@material-ui/core'
 import ProjectController from '../../Controllers/ProjectController'
+import { BorderColor } from '@material-ui/icons'
 // import classNames from 'classnames'
 // import ButtonIcon from './ButtonIcon'
 import AdminTable from './AdminTable'
@@ -29,6 +30,14 @@ const styles = {
 	form: {
 		width: 'max-content',
 		margin: 'auto',
+	},
+	bioEdit: {
+		width: '80%',
+		margin: '0 auto',
+		padding: '.25em .5em'
+		// display: 'block'
+		// marginLeft: '1em',
+		// marginRight: '1em'
 	}
 }
 
@@ -51,7 +60,10 @@ class Admin extends Component {
 			img: '',
 			hasSite: false,
 			count: 0,
-			admin: false
+			admin: false,
+			bio: '',
+			bioEdit: false,
+			contacts: []
 		}
 		// this.handleDelete.bind(this)
 	}
@@ -64,6 +76,8 @@ class Admin extends Component {
 				return window.location = '/'
 			}
 			this.setState({ admin: auth })
+			let bio = await ProjectController.getBio()
+			if(bio && bio !== '') this.setState({ bio })
 		} else {
 			return window.location = '/'
 		}
@@ -115,9 +129,18 @@ class Admin extends Component {
 	// 	return list
 
 	// }
+	handleBioEdit = (e) => {
+		this.setState({bioEdit: !this.state.bioEdit})
+	}
+	updateBio = async (e) => {
+		e.preventDefault()
+		if(this.state.bio !== '') {
+			console.log('Bio updated', this.state.bio.trim())
+		}
+	}
 	render() {
 		const { classes } = this.props
-		let { admin, count } = this.state
+		let { admin, count, bio, bioEdit, contacts } = this.state
 		return (admin &&
 			<Paper className={classes.root}>
 				<Typography variant='display1' gutterBottom align='center' className={classes.display1}>Admin Panel</Typography>
@@ -136,6 +159,29 @@ class Admin extends Component {
 						<input type="submit" value="Submit" />
 					</form>
 				</Paper>
+				{bio && <div>
+					<Typography variant='title' gutterBottom align='center' className={classes.display1}>Bio <BorderColor name='bioEdit' onClick={this.handleBioEdit}/></Typography>
+					
+					{!bioEdit && <Typography variant='body1' className={classes.bioEdit}>{bio}</Typography> || 
+						<form onSubmit={this.updateBio}>
+							<TextField 
+								id='bio' 
+								label='Edit Bio' 
+								multiline rowsMax='10' 
+								value={bio} 
+								onChange={this.handleChange}
+								className={classes.bioEdit}
+								// margin='normal'
+								variant='outlined'
+							/>
+							<input type='submit' value='Update Bio' />
+						</form>
+					}
+					
+				</div>}
+				{contacts && <div>
+
+				</div>}
 				<div className="clearfix"></div>
 			</Paper>
 			|| 	<Paper>
